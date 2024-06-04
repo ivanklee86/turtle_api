@@ -1,0 +1,15 @@
+# https://taskfile.dev
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+includes:
+  python: ./tasks/python.yaml
+
+tasks:
+  default:
+    cmds:
+      - task: python:install
+      - task: python:lint
+      - task: python:test

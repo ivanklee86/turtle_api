@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'poetry'
+      - name: Install Task
+        uses: arduino/setup-task@v1
+      - name: Install packages
+        run: |
+          task python:install
+      - name: Linting
+        run: |
+          task python:lint
+      - name: Tests
+        run: |
+          task python:test-cov
+      - uses: codecov/codecov-action@v4
+        with:
+          files: test_results/cov.xml

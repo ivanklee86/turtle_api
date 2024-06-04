@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="2.560" timestamp="2024-06-04T09:53:39.667260" hostname="codespaces-21b25a"><testcase classname="tests.integration.test_service" name="test_hello_world" time="0.023" /></testsuite></testsuites>
